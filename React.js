@@ -1,7 +1,12 @@
 function createElement(tagName, props, children) {
-    let tag = document.createElement(tagName)
-    tag.innerHTML = children
-    return tag
+    // 函数组件
+    if(typeof tagName === 'function') {
+        return tagName()
+    }else {
+        let tag = document.createElement(tagName)
+        tag.innerHTML = children
+        return tag
+    }
 }
 
 React = {
